@@ -291,7 +291,8 @@ app.get('/', (req, res) => {
 // START SERVER
 // ═══════════════════════════════════════════
 
-if (require.main === module) {
+// For local development
+if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
     console.log('');
     console.log('  ══════════════════════════════════════════');
@@ -305,4 +306,5 @@ if (require.main === module) {
   });
 }
 
+// For Vercel — export the app
 module.exports = app;
