@@ -283,16 +283,14 @@ app.get('/api/leads', async (req, res) => {
 // ROOT PAGE
 // ═══════════════════════════════════════════
 
-app.get('/', (req, res) => {
-  res.redirect('/health');
-});
+// The root route is served by public/index.html via express.static
 
 // ═══════════════════════════════════════════
 // START SERVER
 // ═══════════════════════════════════════════
 
-// For local development
-if (process.env.NODE_ENV !== 'production') {
+// For local development or standard Node hosting (Render/Heroku)
+if (require.main === module) {
   app.listen(PORT, () => {
     console.log('');
     console.log('  ══════════════════════════════════════════');

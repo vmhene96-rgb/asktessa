@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AskTessa — List Your Business Free</title>
+  <title>AskTessa — List Your Skills & Get Gigs</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f0f0f0; color: #333; }
+    body { font-family: Arial, sans-serif; background: #f0f4f2; color: #333; }
 
     .header {
-      background: #0F6E56; color: white;
-      padding: 24px 20px; text-align: center;
+      background: #0b503e; color: white;
+      padding: 32px 20px; text-align: center;
     }
     .header h1 { font-size: 32px; letter-spacing: -0.5px; }
     .header p  { font-size: 14px; margin-top: 6px; opacity: 0.85; }
@@ -19,11 +19,11 @@
       max-width: 620px; margin: 36px auto;
       background: white; padding: 36px 32px;
       border-radius: 10px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
 
-    h2 { color: #0F6E56; font-size: 20px; margin-bottom: 6px; }
-    .sub { font-size: 13px; color: #777; margin-bottom: 24px; }
+    h2 { color: #0b503e; font-size: 20px; margin-bottom: 6px; }
+    .sub { font-size: 13px; color: #666; margin-bottom: 24px; }
 
     label {
       display: block; font-size: 13px;
@@ -35,10 +35,11 @@
       width: 100%; padding: 11px 14px;
       border: 1.5px solid #ddd; border-radius: 7px;
       font-size: 15px; font-family: Arial;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
     input:focus, select:focus, textarea:focus {
       outline: none; border-color: #00D1C4;
+      box-shadow: 0 0 0 3px rgba(0, 209, 196, 0.15);
     }
 
     .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -53,22 +54,24 @@
 
     .btn {
       width: 100%; margin-top: 28px; padding: 15px;
-      background: #0F6E56; color: white; border: none;
+      background: #0b503e; color: white; border: none;
       border-radius: 8px; font-size: 17px;
       font-weight: bold; cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.1s;
     }
     .btn:hover    { background: #00A080; }
+    .btn:active   { transform: scale(0.99); }
     .btn:disabled { background: #aaa; cursor: not-allowed; }
 
     .success-box {
       display: none; background: #E1F5EE;
-      border: 1.5px solid #0F6E56; color: #0F6E56;
+      border: 1.5px solid #0b503e; color: #0b503e;
       padding: 24px; border-radius: 8px;
       text-align: center; margin-top: 20px;
     }
     .success-box h3 { font-size: 20px; margin-bottom: 8px; }
     .success-box p  { font-size: 14px; color: #555; }
+    .success-box p strong { color: #0b503e; }
 
     .error-msg {
       color: #C62828; font-size: 13px;
@@ -79,27 +82,25 @@
       text-align: center; padding: 24px;
       font-size: 12px; color: #aaa;
     }
-    footer a { color: #0F6E56; }
+    footer a { color: #0b503e; font-weight: bold; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
   <div class="header">
-    <h1>AskTessa</h1>
-    <p>Stop Scrolling. Start Asking. — Bulawayo's Smart Business Directory</p>
+    <h1>AskTessa for Talent</h1>
+    <p>Find Gigs & Get Hired in Bulawayo — Powered by Tessa AI</p>
   </div>
 
   <div class="container">
-    <h2>List Your Business — It's Free</h2>
-    <p class="sub">Register once. Tessa AI matches you to customers searching for exactly what you offer.</p>
+    <h2>List Your Skills</h2>
+    <p class="sub">Are you a plumber, cleaner, electrician, tutor, or designer? Register your skills and let Tessa match you to clients.</p>
 
     <form id="regForm">
 
-      <label>Business Name <span class="required">*</span></label>
-      <input type="text" id="name" placeholder="e.g. Ndlovu Phone Repairs" required>
-
-      <label>Your Name (Owner)</label>
-      <input type="text" id="owner_name" placeholder="Your full name">
+      <label>Full Name <span class="required">*</span></label>
+      <input type="text" id="name" placeholder="e.g. Sipho Ndlovu" required>
 
       <div class="row2">
         <div>
@@ -112,53 +113,51 @@
         </div>
       </div>
 
-      <label>Business Category <span class="required">*</span></label>
+      <label>Your Skill / Category <span class="required">*</span></label>
       <select id="category" required>
-        <option value="">-- Select your category --</option>
-        <option>Electronics Repair</option>
-        <option>Food & Catering</option>
-        <option>Hair & Beauty</option>
-        <option>Clothing & Tailoring</option>
-        <option>Transport</option>
-        <option>Groceries</option>
+        <option value="">-- Select your main skill --</option>
         <option>Plumbing</option>
         <option>Electrical</option>
         <option>Cleaning</option>
+        <option>Tutoring</option>
+        <option>Hair & Beauty</option>
+        <option>Clothing & Tailoring</option>
+        <option>Electronics Repair</option>
+        <option>Food & Catering</option>
         <option>Photography</option>
         <option>Construction</option>
-        <option>Tutoring</option>
-        <option>Other</option>
+        <option>Transport</option>
+        <option>Other Services</option>
       </select>
 
       <label>Your Location in Bulawayo <span class="required">*</span></label>
       <input type="text" id="location"
-        placeholder="e.g. Nkulumane, City Centre, Belmont, Hillside" required>
+        placeholder="e.g. City Centre, Nkulumane, Hillside, Suburbs" required>
 
-      <label>Short Description</label>
+      <label>Tell clients about your experience & work quality</label>
       <textarea id="description" rows="3"
-        placeholder="Tell customers what you do and what makes you stand out..."></textarea>
+        placeholder="Describe what you do, how many years of experience you have, and list any reference work..."></textarea>
 
-      <label>Price Range</label>
+      <label>Your Rates / Pricing</label>
       <input type="text" id="price_range"
-        placeholder="e.g. From $5, or $10 – $50 per service">
+        placeholder="e.g. $10 per hour, or from $20 per job">
 
-      <label>Payment Methods Accepted</label>
+      <label>Payment Methods You Accept</label>
       <div class="checks">
         <label><input type="checkbox" id="ecocash" checked> EcoCash</label>
         <label><input type="checkbox" id="cash" checked> Cash</label>
       </div>
 
       <button type="submit" class="btn" id="submitBtn">
-        List My Business on AskTessa — Free
+        List My Skills on AskTessa — Free
       </button>
     </form>
 
     <div class="success-box" id="successBox">
-      <h3>🎉 You're Listed!</h3>
-      <p>Welcome to AskTessa! Tessa will now match your business to customers searching for what you offer.</p>
+      <h3>🎉 You're Registered!</h3>
+      <p>Awesome! Your skills are now listed. When customers ask Tessa for services in your category, she'll recommend you.</p>
       <p style="margin-top:12px">
-        Share this page with other businesses:<br>
-        <strong id="shareUrl"></strong>
+        Go back to the <a href="/" style="color: #0b503e; font-weight: bold; text-decoration: underline;">Business Registration Page</a>
       </p>
     </div>
 
@@ -167,13 +166,10 @@
 
   <footer>
     AskTessa (Pvt) Ltd — Bulawayo, Zimbabwe — 2025 |
-    <a href="/talent.html">Looking for work? List your skills</a>
+    <a href="/">Register a Business instead</a>
   </footer>
 
   <script>
-    // Show the page URL for sharing
-    document.getElementById('shareUrl').textContent = window.location.origin;
-
     document.getElementById('regForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
@@ -184,7 +180,7 @@
 
       const data = {
         name:            document.getElementById('name').value.trim(),
-        owner_name:      document.getElementById('owner_name').value.trim(),
+        owner_name:      document.getElementById('name').value.trim(), // For individuals, owner_name is the same
         phone:           document.getElementById('phone').value.trim(),
         whatsapp:        document.getElementById('whatsapp').value.trim(),
         category:        document.getElementById('category').value,
@@ -210,13 +206,13 @@
           document.getElementById('errorMsg').textContent =
             result.error || 'Something went wrong. Please try again.';
           btn.disabled  = false;
-          btn.textContent = 'List My Business on AskTessa — Free';
+          btn.textContent = 'List My Skills on AskTessa — Free';
         }
       } catch(err) {
         document.getElementById('errorMsg').textContent =
           'Connection error. Please try again.';
         btn.disabled  = false;
-        btn.textContent = 'List My Business on AskTessa — Free';
+        btn.textContent = 'List My Skills on AskTessa — Free';
       }
     });
   </script>
