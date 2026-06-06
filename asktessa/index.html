@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AskTessa — List Your Business Free</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f0f0f0; color: #333; }
+
+    .header {
+      background: #0F6E56; color: white;
+      padding: 24px 20px; text-align: center;
+    }
+    .header h1 { font-size: 32px; letter-spacing: -0.5px; }
+    .header p  { font-size: 14px; margin-top: 6px; opacity: 0.85; }
+
+    .container {
+      max-width: 620px; margin: 36px auto;
+      background: white; padding: 36px 32px;
+      border-radius: 10px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    h2 { color: #0F6E56; font-size: 20px; margin-bottom: 6px; }
+    .sub { font-size: 13px; color: #777; margin-bottom: 24px; }
+
+    label {
+      display: block; font-size: 13px;
+      font-weight: bold; margin: 18px 0 5px; color: #444;
+    }
+    .required { color: #E65100; }
+
+    input, select, textarea {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid #ddd; border-radius: 7px;
+      font-size: 15px; font-family: Arial;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none; border-color: #00D1C4;
+    }
+
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .checks { display: flex; gap: 24px; margin-top: 8px; }
+    .checks label {
+      font-weight: normal; display: flex;
+      align-items: center; gap: 7px;
+      cursor: pointer; margin: 0;
+    }
+    .checks input[type=checkbox] { width: auto; }
+
+    .btn {
+      width: 100%; margin-top: 28px; padding: 15px;
+      background: #0F6E56; color: white; border: none;
+      border-radius: 8px; font-size: 17px;
+      font-weight: bold; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover    { background: #00A080; }
+    .btn:disabled { background: #aaa; cursor: not-allowed; }
+
+    .success-box {
+      display: none; background: #E1F5EE;
+      border: 1.5px solid #0F6E56; color: #0F6E56;
+      padding: 24px; border-radius: 8px;
+      text-align: center; margin-top: 20px;
+    }
+    .success-box h3 { font-size: 20px; margin-bottom: 8px; }
+    .success-box p  { font-size: 14px; color: #555; }
+
+    .error-msg {
+      color: #C62828; font-size: 13px;
+      margin-top: 10px; text-align: center;
+    }
+
+    footer {
+      text-align: center; padding: 24px;
+      font-size: 12px; color: #aaa;
+    }
+    footer a { color: #0F6E56; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>AskTessa</h1>
+    <p>Stop Scrolling. Start Asking. — Bulawayo's Smart Business Directory</p>
+  </div>
+
+  <div class="container">
+    <h2>List Your Business — It's Free</h2>
+    <p class="sub">Register once. Tessa AI matches you to customers searching for exactly what you offer.</p>
+
+    <form id="regForm">
+
+      <label>Business Name <span class="required">*</span></label>
+      <input type="text" id="name" placeholder="e.g. Ndlovu Phone Repairs" required>
+
+      <label>Your Name (Owner)</label>
+      <input type="text" id="owner_name" placeholder="Your full name">
+
+      <div class="row2">
+        <div>
+          <label>Phone Number <span class="required">*</span></label>
+          <input type="tel" id="phone" placeholder="e.g. 0771234567" required>
+        </div>
+        <div>
+          <label>WhatsApp Number</label>
+          <input type="tel" id="whatsapp" placeholder="If different from above">
+        </div>
+      </div>
+
+      <label>Business Category <span class="required">*</span></label>
+      <select id="category" required>
+        <option value="">-- Select your category --</option>
+        <option>Electronics Repair</option>
+        <option>Food & Catering</option>
+        <option>Hair & Beauty</option>
+        <option>Clothing & Tailoring</option>
+        <option>Transport</option>
+        <option>Groceries</option>
+        <option>Plumbing</option>
+        <option>Electrical</option>
+        <option>Cleaning</option>
+        <option>Photography</option>
+        <option>Construction</option>
+        <option>Tutoring</option>
+        <option>Other</option>
+      </select>
+
+      <label>Your Location in Bulawayo <span class="required">*</span></label>
+      <input type="text" id="location"
+        placeholder="e.g. Nkulumane, City Centre, Belmont, Hillside" required>
+
+      <label>Short Description</label>
+      <textarea id="description" rows="3"
+        placeholder="Tell customers what you do and what makes you stand out..."></textarea>
+
+      <label>Price Range</label>
+      <input type="text" id="price_range"
+        placeholder="e.g. From $5, or $10 – $50 per service">
+
+      <label>Payment Methods Accepted</label>
+      <div class="checks">
+        <label><input type="checkbox" id="ecocash" checked> EcoCash</label>
+        <label><input type="checkbox" id="cash" checked> Cash</label>
+      </div>
+
+      <button type="submit" class="btn" id="submitBtn">
+        List My Business on AskTessa — Free
+      </button>
+    </form>
+
+    <div class="success-box" id="successBox">
+      <h3>🎉 You're Listed!</h3>
+      <p>Welcome to AskTessa! Tessa will now match your business to customers searching for what you offer.</p>
+      <p style="margin-top:12px">
+        Share this page with other businesses:<br>
+        <strong id="shareUrl"></strong>
+      </p>
+    </div>
+
+    <p class="error-msg" id="errorMsg"></p>
+  </div>
+
+  <footer>
+    AskTessa (Pvt) Ltd — Bulawayo, Zimbabwe — 2025 |
+    <a href="/talent.html">Looking for work? List your skills</a>
+  </footer>
+
+  <script>
+    // Show the page URL for sharing
+    document.getElementById('shareUrl').textContent = window.location.origin;
+
+    document.getElementById('regForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Registering...';
+      document.getElementById('errorMsg').textContent = '';
+
+      const data = {
+        name:            document.getElementById('name').value.trim(),
+        owner_name:      document.getElementById('owner_name').value.trim(),
+        phone:           document.getElementById('phone').value.trim(),
+        whatsapp:        document.getElementById('whatsapp').value.trim(),
+        category:        document.getElementById('category').value,
+        location:        document.getElementById('location').value.trim(),
+        description:     document.getElementById('description').value.trim(),
+        price_range:     document.getElementById('price_range').value.trim(),
+        accepts_ecocash: document.getElementById('ecocash').checked,
+        accepts_cash:    document.getElementById('cash').checked,
+      };
+
+      try {
+        const res    = await fetch('/api/register', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(data)
+        });
+        const result = await res.json();
+
+        if (result.success) {
+          document.getElementById('regForm').style.display = 'none';
+          document.getElementById('successBox').style.display = 'block';
+        } else {
+          document.getElementById('errorMsg').textContent =
+            result.error || 'Something went wrong. Please try again.';
+          btn.disabled  = false;
+          btn.textContent = 'List My Business on AskTessa — Free';
+        }
+      } catch(err) {
+        document.getElementById('errorMsg').textContent =
+          'Connection error. Please try again.';
+        btn.disabled  = false;
+        btn.textContent = 'List My Business on AskTessa — Free';
+      }
+    });
+  </script>
+
+</body>
+</html>

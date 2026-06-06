@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-
+app.use(express.static('public'));
 // Connect to Gemini (Tessa's brain)
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
@@ -278,17 +278,29 @@ app.get('/api/leads', async (req, res) => {
 });
 
 // ═══════════════════════════════════════════
+// ROOT PAGE
+// ═══════════════════════════════════════════
+
+app.get('/', (req, res) => {
+  res.redirect('/health');
+});
+
+// ═══════════════════════════════════════════
 // START SERVER
 // ═══════════════════════════════════════════
 
-app.listen(PORT, () => {
-  console.log('');
-  console.log('  ══════════════════════════════════════════');
-  console.log('  AskTessa — AI + Database RUNNING');
-  console.log('  ══════════════════════════════════════════');
-  console.log('  Health:     http://localhost:' + PORT + '/health');
-  console.log('  Tessa ask:  http://localhost:' + PORT + '/tessa/ask');
-  console.log('  Businesses: http://localhost:' + PORT + '/api/businesses');
-  console.log('  Leads:      http://localhost:' + PORT + '/api/leads');
-  console.log('');
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log('');
+    console.log('  ══════════════════════════════════════════');
+    console.log('  AskTessa — AI + Database RUNNING');
+    console.log('  ══════════════════════════════════════════');
+    console.log('  Health:     http://localhost:' + PORT + '/health');
+    console.log('  Tessa ask:  http://localhost:' + PORT + '/tessa/ask');
+    console.log('  Businesses: http://localhost:' + PORT + '/api/businesses');
+    console.log('  Leads:      http://localhost:' + PORT + '/api/leads');
+    console.log('');
+  });
+}
+
+module.exports = app;
